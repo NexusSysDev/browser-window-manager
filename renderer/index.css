@@ -1,0 +1,185 @@
+:root {
+    --mainbgcolor: #222233;
+    --menubar-color: #44445544;
+    --menubar-containers-color: #9999aa44;
+    --border-radius: 16px;
+    --menubar-items-color: #99a;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    user-select: none;
+    -webkit-user-select: none;
+    border: 0;
+    outline: none;
+}
+
+body {
+    background: var(--mainbgcolor);
+    color: #fafafa;
+    font-size: 24px;
+}
+
+menubar  {
+    background: var(--menubar-color);
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    backdrop-filter: blur(16px);
+    z-index: 10000;
+}
+
+menubar-icons {
+    position: fixed;
+    left: 2px;
+    top: 2px;
+    height: 60px;
+    background: var(--menubar-containers-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    backdrop-filter: blur(16px);
+    z-index: 100000;
+    border-radius: var(--border-radius);
+    padding: 4px;
+}
+
+tray {
+    background: var(--menubar-containers-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    backdrop-filter: blur(16px);
+    z-index: 100000;
+    position: fixed;
+    top: 96px;
+    right: 16px;
+    padding: 16px;
+    border-radius: var(--border-radius);
+    max-width: 512px;
+    max-height: 512px;
+    overflow: hidden auto;
+    transition: 1s;
+    opacity: 1
+}
+
+tray:not(.open) {
+    opacity: 0;
+    top: -512px;
+}
+
+#tray-button {
+    position: fixed;
+    font-size: 48px;
+    top: 2px;
+    width: 64px;
+    height: 60px;
+    right: 2px;
+    background: var(--menubar-containers-color);
+    backdrop-filter: blur(16px);
+    z-index: 100000;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s ease-in-out;
+}
+
+#tray-button:hover {
+    background: #fff4;
+    color: #888;
+    transition: .3s;
+}
+
+#tray-button.open {
+    color: #aaa;
+}
+
+#menubar-shortcut, #menubar-startmenu-button, #tray-shortcut {
+    color: #000;
+    background: var(--menubar-items-color);
+    padding: 8px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+#menubar-startmenu-button {
+    font-size: 36px;
+    padding: 0;
+}
+
+startmenu {
+    background: var(--menubar-containers-color);
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    gap: 0;
+    backdrop-filter: blur(16px);
+    z-index: 100000;
+    position: fixed;
+    top: 96px;
+    left: 16px;
+    position: fixed;
+    border-radius: var(--border-radius);
+    max-width: 512px;
+    max-height: 512px;
+    overflow: hidden auto;
+    transition: 1s;
+    opacity: 1;
+    height: 512px;
+    width: 512px;
+}
+
+/* startmenu:not(.open) {
+    opacity: 0;
+    top: -512px;
+    
+} */
+
+startmenu #tabs {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background: #fff;
+}
+
+startmenu #actions {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    background: #000;
+}
+
+startmenu #icons {
+    grid-column: 2 /3 ;
+    grid-row: 2 / 3;
+    background: #444;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 8px;
+    grid-auto-rows: minmax(60px, auto);
+    padding: 8px;
+    overflow: hidden auto;
+}
+
+startmenu #topbar {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    background: #999
+}
