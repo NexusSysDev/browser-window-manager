@@ -4,9 +4,7 @@
     --menubar-containers-color: #9999aa44;
     --border-radius: 16px;
     --menubar-items-color: #99a;
-
 }
-
 
 * {
     margin: 0;
@@ -25,7 +23,7 @@ body {
     font-size: 24px;
 }
 
-menubar  {
+menubar {
     background: var(--menubar-color);
     padding: 8px;
     display: flex;
@@ -76,8 +74,8 @@ tray {
     max-width: 512px;
     max-height: 512px;
     overflow: hidden auto;
-    transition: 1s;
-    opacity: 1
+    transition: 1s ease-in-out;
+    opacity: 1;
 }
 
 tray:not(.open) {
@@ -106,14 +104,16 @@ tray:not(.open) {
 #tray-button:hover {
     background: #fff4;
     color: #888;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 #tray-button.open {
     color: #aaa;
 }
 
-#menubar-shortcut, #menubar-startmenu-button, #tray-shortcut {
+#menubar-shortcut,
+#menubar-startmenu-button,
+#tray-shortcut {
     color: #000;
     background: var(--menubar-items-color);
     padding: 8px;
@@ -132,7 +132,7 @@ startmenu {
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 5fr 1fr;
     gap: 0;
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(32px);
     z-index: 100000;
     position: fixed;
     top: 96px;
@@ -142,7 +142,7 @@ startmenu {
     max-width: 512px;
     max-height: 512px;
     overflow: hidden auto;
-    transition: 1s;
+    transition: 1s ease-in-out;
     opacity: 1;
     height: 512px;
     width: 512px;
@@ -151,29 +151,35 @@ startmenu {
 /* startmenu:not(.open) {
     opacity: 0;
     top: -512px;
-    
 } */
 
 startmenu #tabs {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    background: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+    gap: 8px;
+    padding: 8px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 startmenu #actions {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
-    background: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
 }
 
 startmenu #icons {
-    grid-column: 2 /3 ;
+    grid-column: 2 /3;
     grid-row: 2 / 3;
-    background: #444;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 8px;
-    grid-auto-rows: minmax(60px, auto);
+    grid-auto-rows: 60px;
     padding: 8px;
     overflow: hidden auto;
 }
@@ -181,5 +187,44 @@ startmenu #icons {
 startmenu #topbar {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
-    background: #999
+    border-bottom: #000 solid 4px;
+    margin: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+}
+
+
+startmenu #topbar #lefttopbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    padding: 16px
+}
+
+startmenu #topbar #righttopbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    padding: 16px
+}
+
+
+
+horizontal-hr {
+    border: #000 solid 2px;
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+vertical-hr {
+    border: #000 solid 2px;
+    height: 100%;
+    border-radius: var(--border-radius);
 }
