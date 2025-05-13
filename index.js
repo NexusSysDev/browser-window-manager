@@ -7,12 +7,16 @@ function createWindow() {
     autoHideMenuBar: true,
     webPreferences: {
       webSecurity: false,
+      nodeIntegration: true,
+      contextIsolation: false,
+      webviewTag: true,
     },
   });
 
   mainWindow.setMenu(null);
 
-  mainWindow.loadFile("renderer/index.html");
+  // Load the local HTML file
+  mainWindow.loadFile(path.join(__dirname, "renderer", "index.html"));
 
   mainWindow.on("closed", () => {
     mainWindow = null;

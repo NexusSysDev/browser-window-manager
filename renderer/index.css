@@ -4,6 +4,7 @@
     --menubar-containers-color: #9999aa44;
     --border-radius: 16px;
     --menubar-items-color: #99a;
+    --searchBarColor: none;
 }
 
 * {
@@ -15,6 +16,7 @@
     -webkit-user-select: none;
     border: 0;
     outline: none;
+    overflow: visible;
 }
 
 body {
@@ -153,7 +155,7 @@ startmenu {
     top: -512px;
 } */
 
-startmenu #tabs {
+#tabs {
     display: flex;
     flex-direction: column;
     overflow: hidden auto;
@@ -163,7 +165,7 @@ startmenu #tabs {
     align-items: center;
 }
 
-startmenu #actions {
+#actions {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
     display: flex;
@@ -173,7 +175,7 @@ startmenu #actions {
     padding: 8px;
 }
 
-startmenu #icons {
+#icons {
     grid-column: 2 /3;
     grid-row: 2 / 3;
     display: grid;
@@ -184,7 +186,7 @@ startmenu #icons {
     overflow: hidden auto;
 }
 
-startmenu #topbar {
+#topbar {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
     border-bottom: #000 solid 4px;
@@ -196,23 +198,31 @@ startmenu #topbar {
     padding: 4px;
 }
 
-
-startmenu #topbar #lefttopbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 4px;
-    padding: 16px
+span#username {
+    font-weight: bold;
+    font-size: 16px;
+    justify-self: flex-start;
+    flex-grow: 1;
 }
 
-startmenu #topbar #righttopbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 4px;
-    padding: 16px
+input#searchBar {
+    border: 2px solid #000;
+    border-radius: 2px;
+    background: var(--searchBarColor);
+    padding: 2px;
+    margin: 2px;
+    font-size: 12px;
+    justify-self: center;
+    flex-grow: 2;
+    color: #fafafa
+}
+
+div#settingsButton,
+div#keepOpen {
+    font-size: 24px;
+    padding: 4px;
+    cursor: pointer;
+    
 }
 
 
