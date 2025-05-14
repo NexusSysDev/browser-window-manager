@@ -214,7 +214,7 @@ input#searchBar {
     font-size: 12px;
     justify-self: center;
     flex-grow: 2;
-    color: #fafafa
+    color: #fafafa;
 }
 
 div#settingsButton,
@@ -222,10 +222,7 @@ div#keepOpen {
     font-size: 24px;
     padding: 4px;
     cursor: pointer;
-    
 }
-
-
 
 horizontal-hr {
     border: #000 solid 2px;
