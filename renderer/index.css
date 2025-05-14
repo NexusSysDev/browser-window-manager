@@ -1,3 +1,6 @@
+/* ==========================
+    Root Variables
+========================== */
 :root {
     --mainbgcolor: #222233;
     --menubar-color: #44445544;
@@ -5,8 +8,12 @@
     --border-radius: 16px;
     --menubar-items-color: #99a;
     --searchBarColor: none;
+    --animation: 0.5s ease;
 }
 
+/* ==========================
+    Global Styles
+========================== */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +24,7 @@
     border: 0;
     outline: none;
     overflow: visible;
+    transition: var(--animation);
 }
 
 body {
@@ -25,19 +33,27 @@ body {
     font-size: 24px;
 }
 
-menubar {
+/* ==========================
+    Menubar & Icons
+========================== */
+menubar,
+menubar-icons {
     background: var(--menubar-color);
     padding: 8px;
     display: flex;
+    gap: 16px;
+    backdrop-filter: blur(16px);
+    z-index: 100000;
+}
+
+menubar {
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 64px;
-    backdrop-filter: blur(16px);
     z-index: 10000;
 }
 
@@ -46,19 +62,13 @@ menubar-icons {
     left: 2px;
     top: 2px;
     height: 60px;
-    background: var(--menubar-containers-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-    backdrop-filter: blur(16px);
-    z-index: 100000;
     border-radius: var(--border-radius);
-    padding: 4px;
 }
 
+/* ==========================
+    Tray & Button
+========================== */
 tray {
     background: var(--menubar-containers-color);
     display: flex;
@@ -76,7 +86,6 @@ tray {
     max-width: 512px;
     max-height: 512px;
     overflow: hidden auto;
-    transition: 1s ease-in-out;
     opacity: 1;
 }
 
@@ -87,11 +96,10 @@ tray:not(.open) {
 
 #tray-button {
     position: fixed;
-    font-size: 48px;
     top: 2px;
+    right: 2px;
     width: 64px;
     height: 60px;
-    right: 2px;
     background: var(--menubar-containers-color);
     backdrop-filter: blur(16px);
     z-index: 100000;
@@ -100,20 +108,23 @@ tray:not(.open) {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 1s ease-in-out;
+    font-size: 48px;
 }
 
 #tray-button:hover {
     background: #fff4;
     color: #888;
-    transition: 0.3s;
 }
 
 #tray-button.open {
     color: #aaa;
 }
 
-#menubar-shortcut,
+/* ==========================
+    Menu & Shortcuts
+========================== */
+.menubar-shortcut,
+#tray-button,
 #menubar-startmenu-button,
 #tray-shortcut {
     color: #000;
@@ -128,56 +139,87 @@ tray:not(.open) {
     padding: 0;
 }
 
+/* ==========================
+    Start Menu
+========================== */
 startmenu {
     background: var(--menubar-containers-color);
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 5fr 1fr;
-    gap: 0;
     backdrop-filter: blur(32px);
     z-index: 100000;
     position: fixed;
     top: 96px;
     left: 16px;
-    position: fixed;
     border-radius: var(--border-radius);
-    max-width: 512px;
-    max-height: 512px;
-    overflow: hidden auto;
-    transition: 1s ease-in-out;
-    opacity: 1;
     height: 512px;
     width: 512px;
+    overflow: hidden auto;
+    opacity: 1;
 }
 
-/* startmenu:not(.open) {
+startmenu:not(.open) {
     opacity: 0;
     top: -512px;
-} */
+}
 
+/* ==========================
+    Tabs
+========================== */
 #tabs {
     display: flex;
     flex-direction: column;
-    overflow: hidden auto;
     gap: 8px;
     padding: 8px;
-    justify-content: flex-start;
-    align-items: center;
+    overflow: hidden auto;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
 }
 
-#actions {
-    grid-column: 1 / 3;
-    grid-row: 3 / 4;
+.tabs-shortcut {
+    padding: 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    border: 2px #0000 solid;
+}
+
+.tabs-shortcut:hover {
+    border: 2px #000 solid;
+}
+
+/* ==========================
+    Bottom Bar
+========================== */
+#bottombar {
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     padding: 8px;
+    gap: 8px;
+    font-size: 12px;
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
 }
 
-#icons {
-    grid-column: 2 /3;
-    grid-row: 2 / 3;
+.bottombar-shortcut,
+.startmenu-shortcut {
+    color: #fff;
+    padding: 8px;
+    border-radius: calc(var(--border-radius) / 2);
+    cursor: pointer;
+    border: 2px transparent solid;
+}
+
+.bottombar-shortcut:hover,
+.startmenu-shortcut:hover {
+    border: #000 2px solid;
+}
+
+/* ==========================
+    Start Menu Content
+========================== */
+#startmenu {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 8px;
@@ -186,22 +228,38 @@ startmenu {
     overflow: hidden auto;
 }
 
+/* ==========================
+    Top Bar
+========================== */
 #topbar {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    border-bottom: #000 solid 4px;
-    margin: 4px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 4px;
+    margin: 4px;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    border-bottom: 4px solid #000;
 }
 
+.topbar-shortcut {
+    color: #000;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    border: 2px transparent solid;
+}
+
+.topbar-shortcut:hover {
+    border: 2px #000 solid;
+}
+
+/* ==========================
+    Miscellaneous
+========================== */
 span#username {
     font-weight: bold;
     font-size: 16px;
-    justify-self: flex-start;
     flex-grow: 1;
 }
 
@@ -212,9 +270,8 @@ input#searchBar {
     padding: 2px;
     margin: 2px;
     font-size: 12px;
-    justify-self: center;
-    flex-grow: 2;
     color: #fafafa;
+    flex-grow: 2;
 }
 
 div#settingsButton,
@@ -224,14 +281,16 @@ div#keepOpen {
     cursor: pointer;
 }
 
-horizontal-hr {
-    border: #000 solid 2px;
-    width: 100%;
+horizontal-hr,
+vertical-hr {
+    border: 2px solid #000;
     border-radius: var(--border-radius);
 }
 
+horizontal-hr {
+    width: 100%;
+}
+
 vertical-hr {
-    border: #000 solid 2px;
     height: 100%;
-    border-radius: var(--border-radius);
 }
