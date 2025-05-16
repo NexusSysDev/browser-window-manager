@@ -1,7 +1,7 @@
 const trayButton = document.querySelector("#tray-button");
-const trayMenu = document.querySelector("tray");
+const trayMenu = document.querySelector("#tray");
 const startMenuButton = document.querySelector("#menubar-startmenu-button");
-const startMenu = document.querySelector("startmenu");
+const startMenu = document.querySelector("#startmenu");
 
 
 trayButton.addEventListener("click", () => {

@@ -7,20 +7,12 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <menubar>
-            <menubar-icons>
+        <div id="menubar">
+            <div id="menubar-icons">
                 <div id="menubar-startmenu-button">⨀</div>
-                <div class="menubar-shortcut"></div>
-                <div class="menubar-shortcut"></div>
-                <div class="menubar-shortcut"></div>
-            </menubar-icons>
-            <startmenu>
+            </div>
+            <div id="startmenu">
                 <div id="tabs">
-                    <div class="tabs-shortcut"></div>
-                    <div class="tabs-shortcut"></div>
-                    <div class="tabs-shortcut"></div>
-                    <horizontal-hr></horizontal-hr>
-                    <div class="tabs-shortcut"></div>
                 </div>
                 <div id="bottombar">
                     <div class="bottombar-shortcut" id="sleep-button">🌙 Sleep</div>
@@ -29,12 +21,7 @@
                     <div class="bottombar-shortcut" id="lock-button">🔒 Lock</div>
                     <div class="bottombar-shortcut" id="logout-button">⎋ Log Out</div>
                 </div>
-                <div id="startmenu">
-                    <div class="startmenu-shortcut"></div>
-                    <div class="startmenu-shortcut"></div>
-                    <div class="startmenu-shortcut"></div>
-                    <div class="startmenu-shortcut"></div>
-                    <div class="startmenu-shortcut"></div>
+                <div id="startmenu-icons">
                 </div>
                 <div id="topbar">
                     <input
@@ -45,15 +32,12 @@
                     <div id="settingsButton" class="topbar-shortcut">⚙</div>
                     <div id="keepOpen" class="topbar-shortcut">🔒</div>
                 </div>
-            </startmenu>
+            </div>
 
             <div id="tray-button">⨀</div>
-            <tray>
-                <div class="tray-shortcut"></div>
-                <div class="tray-shortcut"></div>
-                <div class="tray-shortcut"></div>
-            </tray>
-        </menubar>
+            <div id="tray">
+            </div>
+        </div>
     </body>
 
     <script src="menubar.js"></script>

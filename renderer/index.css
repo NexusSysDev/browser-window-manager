@@ -7,7 +7,6 @@
     --menubar-containers-color: #9999aa44;
     --border-radius: 16px;
     --menubar-items-color: #99a;
-    --searchBarColor: none;
     --animation: 0.5s ease;
 }
 
@@ -36,8 +35,8 @@ body {
 /* ==========================
     Menubar & Icons
 ========================== */
-menubar,
-menubar-icons {
+#menubar,
+#menubar-icons {
     background: var(--menubar-color);
     padding: 8px;
     display: flex;
@@ -46,7 +45,7 @@ menubar-icons {
     z-index: 100000;
 }
 
-menubar {
+#menubar {
     justify-content: space-between;
     align-items: center;
     position: fixed;
@@ -57,7 +56,7 @@ menubar {
     z-index: 10000;
 }
 
-menubar-icons {
+#menubar-icons {
     position: fixed;
     left: 2px;
     top: 2px;
@@ -69,7 +68,7 @@ menubar-icons {
 /* ==========================
     Tray & Button
 ========================== */
-tray {
+#tray {
     background: var(--menubar-containers-color);
     display: flex;
     justify-content: flex-start;
@@ -89,7 +88,7 @@ tray {
     opacity: 1;
 }
 
-tray:not(.open) {
+#tray:not(.open) {
     opacity: 0;
     top: -512px;
 }
@@ -109,6 +108,16 @@ tray:not(.open) {
     align-items: center;
     justify-content: center;
     font-size: 48px;
+}
+
+.tray-shortcut {
+    border: 2px solid #0000;
+    border-radius: var(--border-radius);
+    padding: 16px;
+}
+
+.tray-shortcut:hover {
+    border: 2px solid #000;
 }
 
 #tray-button:hover {
@@ -142,7 +151,7 @@ tray:not(.open) {
 /* ==========================
     Start Menu
 ========================== */
-startmenu {
+#startmenu {
     background: var(--menubar-containers-color);
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -159,7 +168,7 @@ startmenu {
     opacity: 1;
 }
 
-startmenu:not(.open) {
+#startmenu:not(.open) {
     opacity: 0;
     top: -512px;
 }
@@ -219,7 +228,7 @@ startmenu:not(.open) {
 /* ==========================
     Start Menu Content
 ========================== */
-#startmenu {
+#startmenu-icons {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 8px;
@@ -266,7 +275,7 @@ span#username {
 input#searchBar {
     border: 2px solid #000;
     border-radius: 2px;
-    background: var(--searchBarColor);
+    background: none;
     padding: 2px;
     margin: 2px;
     font-size: 12px;
