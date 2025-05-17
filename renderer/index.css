@@ -1,6 +1,7 @@
-/* ==========================
-    Root Variables
-========================== */
+/*=======================
+===      Variables     ===
+=======================*/
+
 :root {
     --mainbgcolor: #222233;
     --menubar-color: #44445544;
@@ -10,9 +11,10 @@
     --animation: 0.5s ease;
 }
 
-/* ==========================
-    Global Styles
-========================== */
+/*=======================
+===     Global styles  ===
+=======================*/
+
 * {
     margin: 0;
     padding: 0;
@@ -20,10 +22,14 @@
     font-family: monospace;
     user-select: none;
     -webkit-user-select: none;
+    -webkit-user-drag: none;
     border: 0;
     outline: none;
-    overflow: visible;
     transition: var(--animation);
+}
+
+*:not(img, video, audio, canvas) {
+    overflow: visible;
 }
 
 body {
@@ -32,9 +38,10 @@ body {
     font-size: 24px;
 }
 
-/* ==========================
-    Menubar & Icons
-========================== */
+/*=======================
+===      Menubar       ===
+=======================*/
+
 #menubar,
 #menubar-icons {
     background: var(--menubar-color);
@@ -65,9 +72,10 @@ body {
     border-radius: var(--border-radius);
 }
 
-/* ==========================
-    Tray & Button
-========================== */
+/*=======================
+===      Tray          ===
+=======================*/
+
 #tray {
     background: var(--menubar-containers-color);
     display: flex;
@@ -93,6 +101,10 @@ body {
     top: -512px;
 }
 
+/*=======================
+===   Tray Buttons     ===
+=======================*/
+
 #tray-button {
     position: fixed;
     top: 2px;
@@ -110,16 +122,6 @@ body {
     font-size: 48px;
 }
 
-.tray-shortcut {
-    border: 2px solid #0000;
-    border-radius: var(--border-radius);
-    padding: 16px;
-}
-
-.tray-shortcut:hover {
-    border: 2px solid #000;
-}
-
 #tray-button:hover {
     background: #fff4;
     color: #888;
@@ -129,13 +131,25 @@ body {
     color: #aaa;
 }
 
-/* ==========================
-    Menu & Shortcuts
-========================== */
+.tray-shortcut {
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    padding: 16px;
+    cursor: pointer;
+}
+
+.tray-shortcut:hover {
+    border-color: #000;
+}
+
+/*=======================
+=== Menubar & Tray Shared Buttons ===
+=======================*/
+
 .menubar-shortcut,
 #tray-button,
 #menubar-startmenu-button,
-#tray-shortcut {
+.tray-shortcut {
     color: #000;
     background: var(--menubar-items-color);
     padding: 8px;
@@ -143,15 +157,16 @@ body {
     cursor: pointer;
 }
 
+/*=======================
+===   Startmenu        ===
+=======================*/
+
 #menubar-startmenu-button {
     font-size: 36px;
     padding: 0;
     z-index: 1000000;
 }
 
-/* ==========================
-    Start Menu
-========================== */
 #startmenu {
     background: var(--menubar-containers-color);
     display: grid;
@@ -174,9 +189,10 @@ body {
     top: -512px;
 }
 
-/* ==========================
-    Tabs
-========================== */
+/*=======================
+===     Tabs          ===
+=======================*/
+
 #tabs {
     display: flex;
     flex-direction: column;
@@ -188,23 +204,23 @@ body {
 }
 
 .tabs-shortcut {
-    padding: 16px;
+    padding: 4px;
     border-radius: var(--border-radius);
     cursor: pointer;
-    border: 2px #0000 solid;
+    border: 2px solid transparent;
+    font-size: 12px;
+    text-align: center;
 }
 
-.tabs-shortcut:hover {
-    border: 2px #000 solid;
-}
-
+.tabs-shortcut:hover,
 .tabs-shortcut.active {
-    border: 2px #000 solid;
+    border-color: #000;
 }
 
-/* ==========================
-    Bottom Bar
-========================== */
+/*=======================
+===     Bottombar      ===
+=======================*/
+
 #bottombar {
     display: flex;
     justify-content: flex-end;
@@ -222,12 +238,12 @@ body {
     padding: 8px;
     border-radius: calc(var(--border-radius) / 2);
     cursor: pointer;
-    border: 2px transparent solid;
+    border: 2px solid transparent;
 }
 
 .bottombar-shortcut:hover,
 .startmenu-shortcut:hover {
-    border: #000 2px solid;
+    border-color: #000;
 }
 
 .startmenu-shortcut img {
@@ -235,9 +251,10 @@ body {
     width: 100%;
 }
 
-/* ==========================
-    Start Menu Content
-========================== */
+/*=======================
+===  Startmenu Icons   ===
+=======================*/
+
 #startmenu-icons {
     height: 100%;
     width: 100%;
@@ -256,9 +273,10 @@ body {
     overflow: hidden auto;
 }
 
-/* ==========================
-    Top Bar
-========================== */
+/*=======================
+===      Topbar        ===
+=======================*/
+
 #topbar {
     display: flex;
     justify-content: space-between;
@@ -275,16 +293,17 @@ body {
     padding: 8px;
     border-radius: var(--border-radius);
     cursor: pointer;
-    border: 2px transparent solid;
+    border: 2px solid transparent;
 }
 
 .topbar-shortcut:hover {
-    border: 2px #000 solid;
+    border-color: #000;
 }
 
-/* ==========================
-    Miscellaneous
-========================== */
+/*=======================
+===     Username & Search ===
+=======================*/
+
 span#username {
     font-weight: bold;
     font-size: 16px;
@@ -301,6 +320,24 @@ input#searchBar {
     color: #fafafa;
     flex-grow: 2;
 }
+
+/*=======================
+===    Scrollbars      ===
+=======================*/
+
+::-webkit-scrollbar {
+    background: #777;
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #223;
+    border-radius: var(--border-radius);
+}
+
+/*=======================
+===   Misc elements    ===
+=======================*/
 
 div#settingsButton,
 div#keepOpen {

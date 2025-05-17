@@ -1,106 +1,27 @@
 const path = require("path");
 const fs = require("fs");
+const { log } = require("console");
 let Data = [
     {
       "name": "Tab1",
       "content": [
         {
-          "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+          "name": "Google",
+          "icon": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
           "path": "https://google.com"
         },
         {
-          "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-          "path": "https://google.com"
+          "name": "ChatGPT",
+          "icon": "https://duckduckgo.com/i/24b826883d81f317.png",
+          "path": "https://chatgpt.com/"
         },
         {
-          "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-          "path": "https://google.com"
-        },
-        {
-          "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-          "path": "https://google.com"
-        },
-        {
-          "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-          "path": "https://google.com"
+          "name": "Youtube",
+          "icon": "https://logosmarcas.net/wp-content/uploads/2020/04/YouTube-S%C3%ADmbolo.jpg",
+          "path": "https://youtube.com"
         }
       ]
-    },
-    {
-        "name": "Tab2",
-        "content": [
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          }
-        ]
-      },
-      {
-        "name": "Tab3",
-        "content": [
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          }
-        ]
-      },
-      {
-        "name": "Tab4",
-        "content": [
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          },
-          {
-            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
-            "path": "https://google.com"
-          }
-        ]
-      }
+    }
   ]
   
 
@@ -124,7 +45,6 @@ function getStartmenuSettings() {
                 return null;
             }
             Data = data;
-            console.log(Data);
         }
     );
 }
@@ -143,9 +63,9 @@ function openPage(e) {
 
 
 function mainFunction() {
+    getStartmenuSettings();
+
     Data.forEach((tab) => {
-        let pageName = tab.name;
-        console.log("Tab name:", pageName);
         startmenuPage = document.createElement("div");
         startmenuPage.id = tab.name;
         startmenuPage.classList.add("startmenu-page");
@@ -153,18 +73,17 @@ function mainFunction() {
         tabbutton = document.createElement("div");
         tabbutton.classList.add("tabs-shortcut");
         tabbutton.id = tab.name;
+        tabbutton.innerText = tab.name;
         tabsmenu.appendChild(tabbutton);
 
         tabbutton.addEventListener('click', openPage)
 
 
         tab.content.forEach((item) => {
-            console.log("Item icon:", item.name);
-            console.log("Item path:", item.path);
             startmenuItem = document.createElement("div");
             startmenuItem.classList.add("startmenu-shortcut");
             img = document.createElement("img");
-            img.src = item.name;
+            img.src = item.icon;
             startmenuItem.appendChild(img);
             startmenuItem.action = item.path;
             startmenuPage.appendChild(startmenuItem);

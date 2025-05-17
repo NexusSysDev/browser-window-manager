@@ -2,17 +2,33 @@
   "name": "browser-window-manager",
   "version": "1.0.0",
   "description": "A modern window manager right in a browser, with infinite size of the area for windows.",
-  "license": "NFPL",
+  "license": "MIT",
   "author": "NexusSysDev",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "clear && electron ."
-  },
-  "dependencies": {
-    "electron": "^36.2.0"
+    "test": "clear && electron .",
+    "build": "electron-builder"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5"
+    "electron-builder": "^26.0.12",
+    "npm-run-all": "^4.1.5",
+    "electron": "^36.2.0"
+  },
+  "build": {
+    "appId": "com.nexussysdev.browser-wm",
+    "productName": "Browser-Window-Manager",
+    "files": [
+      "**/*",
+      "!node_modules/.cache"
+    ],
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "AppImage"
+      ],
+      "category": "SystemApp"
+    }
   }
 }
