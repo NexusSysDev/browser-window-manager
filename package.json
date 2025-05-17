@@ -1,15 +1,21 @@
 {
   "name": "browser-window-manager",
   "version": "1.0.0",
-  "description": "A modern window manager right in a browser, with infinite size of the area for windows",
+  "description": "A modern window manager right in a browser, with infinite size of the area for windows.",
   "license": "NFPL",
   "author": "NexusSysDev",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "clear & electron ."
+    "clear": "npm-run-all clear-unix clear-win",
+    "clear-unix": "clear || :",
+    "clear-win": "cls || :",
+    "test": "npm run clear && electron ."
   },
   "dependencies": {
     "electron": "^36.2.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
