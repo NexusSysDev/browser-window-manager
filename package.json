@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "clear && electron .",
-    "build": "electron-builder"
+    "build": "npm run clean & electron-builder",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "electron-builder": "^26.0.12",
@@ -29,6 +30,9 @@
         "AppImage"
       ],
       "category": "SystemApp"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
     }
   }
 }
