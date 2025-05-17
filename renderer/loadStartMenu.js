@@ -57,6 +57,7 @@ function getStartmenuSettings() {
 function openPage(e) {
   const tabID = e.currentTarget.id;
   document.querySelector(".startmenu-page#" + tabID).classList.toggle('active')
+  document.querySelector(".tabs-shortcut#" + tabID).classList.toggle('active')
 }
 
 
@@ -77,7 +78,7 @@ function mainFunction() {
 
 
         tab.content.forEach((item) => {
-            console.log("Item icon:", item.icon);
+            console.log("Item icon:", item.name);
             console.log("Item path:", item.path);
             startmenuItem = document.createElement("div");
             startmenuItem.classList.add("startmenu-shortcut");

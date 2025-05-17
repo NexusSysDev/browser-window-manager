@@ -197,6 +197,10 @@ body {
     border: 2px #000 solid;
 }
 
+.tabs-shortcut.active {
+    border: 2px #000 solid;
+}
+
 /* ==========================
     Bottom Bar
 ========================== */

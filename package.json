@@ -7,10 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "clear": "npm-run-all clear-unix clear-win",
-    "clear-unix": "clear || :",
-    "clear-win": "cls || :",
-    "test": "npm run clear && electron ."
+    "test": "clear && electron ."
   },
   "dependencies": {
     "electron": "^36.2.0"
