@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "A modern window manager right in a browser, with infinite size of the area for windows.",
   "license": "MIT",
-  "author": "NexusSysDev",
+  "author": {
+    "name": "nexussysdev",
+    "email": "nexussysdev@protonmail.com"
+  },
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "clear && electron .",
-    "build": "npm run clean & electron-builder",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
@@ -24,11 +28,7 @@
       "!node_modules/.cache"
     ],
     "linux": {
-      "target": [
-        "deb",
-        "rpm",
-        "AppImage"
-      ],
+      "target": ["deb","AppImage"],
       "category": "SystemApp"
     },
     "win": {
