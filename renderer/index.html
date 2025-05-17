@@ -4,7 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/windows.css" />
     </head>
     <body>
         <div id="menubar">
@@ -12,18 +13,28 @@
                 <div id="menubar-startmenu-button">⨀</div>
             </div>
             <div id="startmenu">
-                <div id="tabs">
-                </div>
+                <div id="tabs"></div>
                 <div id="bottombar">
-                    <div class="bottombar-shortcut" id="sleep-button">🌙 Sleep</div>
-                    <div class="bottombar-shortcut" id="restart-button">⭯ Restart</div>
-                    <div class="bottombar-shortcut" id="shutdown-button">⏻ Shutdown</div>
-                    <div class="bottombar-shortcut" id="stop-program-button">🔻 Stop the program</div>
-                    <div class="bottombar-shortcut" id="lock-button">🔒 Lock</div>
-                    <div class="bottombar-shortcut" id="logout-button">⎋ Log Out</div>
+                    <div class="bottombar-shortcut" id="sleep-button">
+                        🌙 Sleep
+                    </div>
+                    <div class="bottombar-shortcut" id="restart-button">
+                        ⭯ Restart
+                    </div>
+                    <div class="bottombar-shortcut" id="shutdown-button">
+                        ⏻ Shutdown
+                    </div>
+                    <div class="bottombar-shortcut" id="stop-program-button">
+                        🔻 Stop the program
+                    </div>
+                    <div class="bottombar-shortcut" id="lock-button">
+                        🔒 Lock
+                    </div>
+                    <div class="bottombar-shortcut" id="logout-button">
+                        ⎋ Log Out
+                    </div>
                 </div>
-                <div id="startmenu-icons">
-                </div>
+                <div id="startmenu-icons"></div>
                 <div id="topbar">
                     <input
                         type="text"
@@ -35,11 +46,22 @@
             </div>
 
             <div id="tray-button">⨀</div>
-            <div id="tray">
+            <div id="tray"></div>
+        </div>
+
+        <div id="windowArea">
+            <div class="window">
+                <div class="titlebar">
+                    <p class="windowTittle">Youtube | Main</p>
+                    <div class="windowCloseButton">X</div>
+                    <div class="windowMaximizeButton">□</div>
+                </div>
+                <webview src="https://youtube.com"></webview>
             </div>
         </div>
     </body>
 
     <script src="scripts/menubar.js"></script>
     <script src="scripts/loadStartMenu.js"></script>
+    <script src="scripts/windowInteractions.js"></script>
 </html>

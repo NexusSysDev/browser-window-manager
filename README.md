@@ -25,9 +25,7 @@ Inspired by tiling window managers like [**Hyprland**](https://github.com/hyprwm
 #### **Arch** Linux:  
 ```yay -S browser-wm```
 #### **Debian**:  
-```sudo apt install browser-wm```
-#### **Fedora**:  
-```sudo dnf install browser-wm```
+```sudo apt install browser-wm``` <!-- Removed Fedora support, due to being to complex for me -->
 #### **Flatpak** 
 ```flatpak install com.nexussysdev.bwm```
 

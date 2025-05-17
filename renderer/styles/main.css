@@ -32,9 +32,8 @@
     overflow: visible;
 }
 
-body {
+html, body {
     background: var(--mainbgcolor);
-    color: #fafafa;
     font-size: 24px;
 }
 
