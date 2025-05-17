@@ -10,31 +10,34 @@
         <div id="menubar">
             <div id="menubar-icons">
                 <div id="menubar-startmenu-button">⨀</div>
-                <div id="tray-button">⨀</div>
+            </div>
+            <div id="startmenu">
+                <div id="tabs">
+                </div>
+                <div id="bottombar">
+                    <div class="bottombar-shortcut" id="sleep-button">🌙 Sleep</div>
+                    <div class="bottombar-shortcut" id="restart-button">⭯ Restart</div>
+                    <div class="bottombar-shortcut" id="shutdown-button">⏻ Shutdown</div>
+                    <div class="bottombar-shortcut" id="stop-program-button">🔻 Stop the program</div>
+                    <div class="bottombar-shortcut" id="lock-button">🔒 Lock</div>
+                    <div class="bottombar-shortcut" id="logout-button">⎋ Log Out</div>
+                </div>
+                <div id="startmenu-icons">
+                </div>
+                <div id="topbar">
+                    <input
+                        type="text"
+                        id="searchBar"
+                        placeholder="🔎 Search..."
+                    />
+                    <div id="settingsButton" class="topbar-shortcut">⚙</div>
+                </div>
+            </div>
+
+            <div id="tray-button">⨀</div>
+            <div id="tray">
             </div>
         </div>
-        <div id="startmenu">
-            <div id="tabs"></div>
-            <div id="bottombar">
-                <div class="bottombar-shortcut" id="sleep-button">🌙 Sleep</div>
-                <div class="bottombar-shortcut" id="restart-button">
-                    ⭯ Restart
-                </div>
-                <div class="bottombar-shortcut" id="shutdown-button">
-                    ⏻ Shutdown
-                </div>
-                <div class="bottombar-shortcut" id="lock-button">🔒 Lock</div>
-                <div class="bottombar-shortcut" id="logout-button">
-                    ⎋ Log Out
-                </div>
-            </div>
-            <div id="startmenu-icons"></div>
-            <div id="topbar">
-                <input type="text" id="searchBar" placeholder="🔎 Search..." />
-                <div id="settingsButton" class="topbar-shortcut">⚙</div>
-            </div>
-        </div>
-        <div id="tray"></div>
     </body>
 
     <script src="menubar.js"></script>

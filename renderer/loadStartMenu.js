@@ -25,7 +25,82 @@ let Data = [
           "path": "https://google.com"
         }
       ]
-    }
+    },
+    {
+        "name": "Tab2",
+        "content": [
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          }
+        ]
+      },
+      {
+        "name": "Tab3",
+        "content": [
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          }
+        ]
+      },
+      {
+        "name": "Tab4",
+        "content": [
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          },
+          {
+            "name": "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo-700x394.png",
+            "path": "https://google.com"
+          }
+        ]
+      }
   ]
   
 
@@ -56,6 +131,12 @@ function getStartmenuSettings() {
 
 function openPage(e) {
   const tabID = e.currentTarget.id;
+  startmenu.querySelectorAll(".startmenu-page").forEach(element => {
+    element.classList.remove('active')  
+  });
+  tabsmenu.querySelectorAll(".tabs-shortcut").forEach(element => {
+    element.classList.remove('active')  
+  });
   document.querySelector(".startmenu-page#" + tabID).classList.toggle('active')
   document.querySelector(".tabs-shortcut#" + tabID).classList.toggle('active')
 }
