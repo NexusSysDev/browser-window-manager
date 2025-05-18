@@ -13,7 +13,6 @@
     max-width: 100%;
     max-height: 100%;
     background-color: #0000;
-    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);
     top: 96px;
@@ -40,6 +39,33 @@
     color: #fff;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+}
+
+
+.titlebar-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    
+
+}
+
+.titlebar-left img.windowIcon {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+.titlebar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 12px;
+    gap: 8px;
 }
 
 

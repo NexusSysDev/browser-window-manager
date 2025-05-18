@@ -14,26 +14,6 @@
             </div>
             <div id="startmenu">
                 <div id="tabs"></div>
-                <div id="bottombar">
-                    <div class="bottombar-shortcut" id="sleep-button">
-                        🌙 Sleep
-                    </div>
-                    <div class="bottombar-shortcut" id="restart-button">
-                        ⭯ Restart
-                    </div>
-                    <div class="bottombar-shortcut" id="shutdown-button">
-                        ⏻ Shutdown
-                    </div>
-                    <div class="bottombar-shortcut" id="stop-program-button">
-                        🔻 Stop the program
-                    </div>
-                    <div class="bottombar-shortcut" id="lock-button">
-                        🔒 Lock
-                    </div>
-                    <div class="bottombar-shortcut" id="logout-button">
-                        ⎋ Log Out
-                    </div>
-                </div>
                 <div id="startmenu-icons"></div>
                 <div id="topbar">
                     <input
@@ -52,9 +32,14 @@
         <div id="windowArea">
             <div class="window">
                 <div class="titlebar">
-                    <p class="windowTittle">Youtube | Main</p>
-                    <div class="windowCloseButton">X</div>
+                    <div class="titlebar-left">
+                        <img class="windowIcon" src="https://google.com">
+                        <p class="windowTittle">Youtube | Main</p>
+                    </div>
+                    <div class="titlebar-right">
+                        <div class="windowCloseButton">X</div>
                     <div class="windowMaximizeButton">□</div>
+                    </div>
                 </div>
                 <webview src="https://youtube.com"></webview>
             </div>
@@ -64,4 +49,5 @@
     <script src="scripts/menubar.js"></script>
     <script src="scripts/loadStartMenu.js"></script>
     <script src="scripts/windowInteractions.js"></script>
+    <script src="scripts/DisableWrongJSInWindows.js"></script>
 </html>

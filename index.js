@@ -1,10 +1,12 @@
 const { app, BrowserWindow, webContents } = require("electron");
 const path = require("path");
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+let mainWindow
+const { secureWebviews } = require('./renderer/scripts/DisableWrongJSInWindows');
 
 
 function createWindow() {
-  let mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     kiosk: true,
     autoHideMenuBar: true,
     webPreferences: {
