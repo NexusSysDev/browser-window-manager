@@ -10,13 +10,22 @@
     position: absolute;
     min-width: 360px;
     min-height: 180px;
-    max-width: 100%;
-    max-height: 100%;
     background-color: #0000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);
     top: 96px;
     transition: none;
+}
+
+.window webview {
+    width: 100%;
+    height: calc(100% - 40px);
+    display: block;
+    border: none;
+}
+
+webview iframe {
+    height: 100%;
 }
 
 
@@ -64,8 +73,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 12px;
-    gap: 8px;
+    font-size: 24px;
+    gap: 16px;
 }
 
 

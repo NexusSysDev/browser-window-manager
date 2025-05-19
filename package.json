@@ -1,6 +1,6 @@
 {
   "name": "browser-window-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern window manager right in a browser, with infinite size of the area for windows.",
   "license": "MIT",
   "author": {
