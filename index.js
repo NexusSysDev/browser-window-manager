@@ -7,7 +7,6 @@ const { secureWebviews } = require('./renderer/scripts/DisableWrongJSInWindows')
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    kiosk: true,
     autoHideMenuBar: true,
     webPreferences: {
       webSecurity: false,

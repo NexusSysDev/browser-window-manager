@@ -24,8 +24,9 @@
     border: none;
 }
 
-webview iframe {
-    height: 100%;
+webview, iframe {
+    height: 100% !important;
+    width: 100%;
 }
 
 
@@ -82,4 +83,10 @@ webview iframe {
 .windowCloseButton,
 .windowMaximizeButton {
     cursor: pointer;
+}
+
+.window.closing {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
 }
