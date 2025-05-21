@@ -6,15 +6,15 @@ mainWindowArea.querySelectorAll(".window").forEach(window => {
   const minimizeButton = window.querySelector(".windowMinizeButton");
   const closeButton = window.querySelector(".windowCloseButton");
 
-  maximizeButton.addEventListener("onclick", () => {
+  maximizeButton.addEventListener("click", () => {
     window.classList.toggle("maximized");
   });
 
-  minimizeButton.addEventListener("onclick", () => {
+  minimizeButton.addEventListener("click", () => {
     window.classList.toggle("minimized");
   });
 
-  closeButton.addEventListener("onclick", () => {
+  closeButton.addEventListener("click", () => {
     window.classList.add("closing");
     setTimeout(() => {
       window.remove();
@@ -42,6 +42,7 @@ mainWindowArea.querySelectorAll(".window").forEach(window => {
             height: 100% !important;
             border: none !important;
             display: block;
+            border-radius: 16px;
           }
         `);
 

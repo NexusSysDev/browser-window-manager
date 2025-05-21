@@ -33,11 +33,16 @@ webview, iframe {
 .window.maximized {
     position: fixed;
     transition: .5s;
-    top: 0px;
+    top: 64px;
     left: 0px;
     bottom: 0px;
     right: 0px;
     border-radius: 0;
+}
+
+.window.minimized {
+    max-height: 48px;
+    min-height: 48px;
 }
 
 .titlebar {
@@ -47,6 +52,7 @@ webview, iframe {
     padding: 8px 12px;
     background-color: #333;
     color: #fff;
+    height: 48px;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
 }
