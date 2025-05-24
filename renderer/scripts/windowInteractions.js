@@ -1,52 +1,38 @@
 const mainWindowArea = document.querySelector("#windowArea");
 
-mainWindowArea.querySelectorAll(".window").forEach(window => {
-  const titleBar = window.querySelector(".titlebar");
-  const maximizeButton = window.querySelector(".windowMaximizeButton");
-  const minimizeButton = window.querySelector(".windowMinizeButton");
-  const closeButton = window.querySelector(".windowCloseButton");
+export function initializeWindow(windowElement) {
+  const titleBar = windowElement.querySelector(".titlebar");
+  const maximizeButton = windowElement.querySelector(".windowMaximizeButton");
+  const minimizeButton = windowElement.querySelector(".windowMinizeButton");
+  const closeButton = windowElement.querySelector(".windowCloseButton");
 
-  maximizeButton.addEventListener("click", () => {
-    window.classList.toggle("maximized");
-  });
+  if (maximizeButton) {
+    maximizeButton.addEventListener("click", () => {
+      windowElement.classList.toggle("maximized");
+    });
+  }
 
-  minimizeButton.addEventListener("click", () => {
-    window.classList.toggle("minimized");
-  });
+  if (minimizeButton) {
+    minimizeButton.addEventListener("click", () => {
+      windowElement.classList.toggle("minimized");
+    });
+  }
 
-  closeButton.addEventListener("click", () => {
-    window.classList.add("closing");
-    setTimeout(() => {
-      window.remove();
-    }, 200);
-  });
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      windowElement.classList.add("closing");
+      setTimeout(() => {
+        windowElement.remove();
+      }, 200);
+    });
+  }
 
   if (titleBar) {
-    attachMoveBehaviour(window, titleBar); // Ensure this is defined
+    attachMoveBehaviour(windowElement, titleBar);
 
-    const webview = window.querySelector("webview");
+    const webview = windowElement.querySelector("webview");
     if (webview) {
-      // Wait for the webview to finish loading before injecting CSS
       webview.addEventListener("dom-ready", () => {
-        // Inject styles into the content of the webview
-        webview.insertCSS(`
-          html, body {
-            height: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow: hidden !important;
-          }
-
-          iframe {
-            width: 100% !important;
-            height: 100% !important;
-            border: none !important;
-            display: block;
-            border-radius: 16px;
-          }
-        `);
-
-        // Wait a short moment to allow shadow DOM to attach
         setTimeout(() => {
           try {
             const shadowRoot = webview.shadowRoot;
@@ -54,25 +40,21 @@ mainWindowArea.querySelectorAll(".window").forEach(window => {
               const iframe = shadowRoot.querySelector('iframe');
               if (iframe) {
                 iframe.style.height = '100%';
-                console.log('✅ Styled internal iframe inside webview');
-              } else {
-                console.warn('⚠️ No iframe found in webview shadowRoot');
               }
-            } else {
-              console.warn('⚠️ No shadowRoot found on webview');
             }
           } catch (err) {
-            console.error('❌ Error accessing webview shadow DOM:', err);
+            // Handle error (optional)
           }
         }, 100);
       });
     }
   }
-});
+}
 
 
 
-function attachMoveBehaviour(el, dragHandle) {
+
+export function attachMoveBehaviour(el, dragHandle) {
   let isMoving = false;
   let isResizing = false;
   let startX, startY;

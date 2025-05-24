@@ -30,26 +30,12 @@
         </div>
 
         <div id="windowArea">
-            <div class="window">
-                <div class="titlebar">
-                    <div class="titlebar-left">
-                        <img class="windowIcon" src="https://google.com" />
-                        <p class="windowTittle">Youtube | Main</p>
-                    </div>
-                    <div class="titlebar-right">
-                        <div class="windowMinizeButton">_</div>
-                        <div class="windowMaximizeButton">□</div>
-                        <div class="windowCloseButton">X</div>
-                    </div>
-                </div>
-                <webview src="https://www.youtube.com" style="width:100%; height:100%; border: none;"></webview>
-
-            </div>
         </div>
     </body>
 
-    <script src="scripts/menubar.js"></script>
-    <script src="scripts/loadStartMenu.js"></script>
-    <script src="scripts/windowInteractions.js"></script>
-    <script src="scripts/DisableWrongJSInWindows.js"></script>
+    <script type="module" src="scripts/menubar.js"></script>
+    <script type="module" src="scripts/loadStartMenu.js"></script>
+    <script type="module" src="scripts/windowInteractions.js"></script>
+    <script type="module" src="scripts/DisableWrongJSInWindows.js"></script>
+    <script type="module" src="scripts/createWindows.js"></script>
 </html>

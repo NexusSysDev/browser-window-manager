@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs/promises");
-
+import { openWindow } from "./createWindows.js"
 const startmenu = document.querySelector("#startmenu-icons");
 const tabsmenu = document.querySelector("#tabs");
 
@@ -58,7 +58,8 @@ async function mainFunction() {
       startmenuItem.dataset.path = item.path;
       startmenuItem.addEventListener("click", () => {
         // Do something with item.path
-        console.log("Open:", item.path);
+        console.log(item.name, item.icon, item.path)
+        openWindow(item.name, item.icon, item.path);
       });
 
       startmenuPage.appendChild(startmenuItem);
