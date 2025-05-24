@@ -29,17 +29,6 @@ webview, iframe {
     width: 100%;
 }
 
-
-.window.maximized {
-    position: fixed;
-    transition: .5s;
-    top: 64px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    border-radius: 0;
-}
-
 .window.minimized {
     max-height: 48px;
 }
@@ -86,7 +75,7 @@ webview, iframe {
 
 
 .windowCloseButton,
-.windowMaximizeButton {
+.windowMinimizeButton {
     cursor: pointer;
 }
 

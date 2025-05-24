@@ -30,19 +30,14 @@ export function openWindow(name, icon, path) {
     windowDiv.appendChild(webview);
 
     const minimizeButton = document.createElement("div");
-    minimizeButton.classList.add("windowMinizeButton");
+    minimizeButton.classList.add("windowMinimizeButton");
     minimizeButton.innerText = "_";
-
-    const maximizeButton = document.createElement("div");
-    maximizeButton.classList.add("windowMaximizeButton");
-    maximizeButton.innerText = "□";
 
     const closeButton = document.createElement("div");
     closeButton.classList.add("windowCloseButton");
     closeButton.innerText = "X";
 
     rightTitlebar.appendChild(minimizeButton);
-    rightTitlebar.appendChild(maximizeButton);
     rightTitlebar.appendChild(closeButton);
 
     titleBar.appendChild(leftTitlebar);

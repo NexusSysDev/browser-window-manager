@@ -2,15 +2,9 @@ const mainWindowArea = document.querySelector("#windowArea");
 
 export function initializeWindow(windowElement) {
   const titleBar = windowElement.querySelector(".titlebar");
-  const maximizeButton = windowElement.querySelector(".windowMaximizeButton");
-  const minimizeButton = windowElement.querySelector(".windowMinizeButton");
+  const minimizeButton = windowElement.querySelector(".windowMinimizeButton");
   const closeButton = windowElement.querySelector(".windowCloseButton");
 
-  if (maximizeButton) {
-    maximizeButton.addEventListener("click", () => {
-      windowElement.classList.toggle("maximized");
-    });
-  }
 
   if (minimizeButton) {
     minimizeButton.addEventListener("click", () => {
@@ -62,16 +56,13 @@ export function attachMoveBehaviour(el, dragHandle) {
   let startWidth, startHeight;
 
   function onMouseDown(e) {
-    // 0 = Left click for move (with modifier), 2 = Right click for resize
-    const isLeftClick = e.button === 0;
-    const isRightClick = e.button === 2;
+  const isLeftClick = e.button === 0;
+  const isRightClick = e.button === 2;
 
-    const isMainModifierPressed = e.ctrlKey; // Replace with custom logic if needed
+  // Move only when left click + modifier, resize on right click
+  if (!isLeftClick && !isRightClick) return;
 
-    // Move only when left click + modifier, resize on right click
-    if (!(isLeftClick && isMainModifierPressed) && !isRightClick) return;
-
-    e.preventDefault();
+  e.preventDefault();
 
     startX = e.clientX;
     startY = e.clientY;
@@ -82,7 +73,7 @@ export function attachMoveBehaviour(el, dragHandle) {
     startWidth = rect.width;
     startHeight = rect.height;
 
-    isMoving = isLeftClick && isMainModifierPressed;
+    isMoving = isLeftClick;
     isResizing = isRightClick;
 
     el.style.transition = "none";
